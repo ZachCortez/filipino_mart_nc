@@ -1,11 +1,12 @@
-import type {Product} from "../data/products";
+import type { Product } from "../data/products";
 import React from "react";
 
 interface Props {
     product: Product;
+    onAddToCart?: (product: Product) => void; // typed as optional callback
 }
 
-const ProductCard: React.FC<Props> = ({ product }) => {
+const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
     return (
         <div className="bg-white border rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
             <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
@@ -15,7 +16,10 @@ const ProductCard: React.FC<Props> = ({ product }) => {
                 <p className="text-sm text-gray-700 mt-2">{product.description}</p>
                 <div className="mt-4 flex justify-between items-center">
                     <span className="font-bold text-gray-900">{product.price}</span>
-                    <button className="bg-red-600 text-white text-sm px-3 py-1 rounded hover:bg-red-700 transition">
+                    <button
+                        onClick={() => onAddToCart && onAddToCart(product)}
+                        className="bg-red-600 text-white text-sm px-3 py-1 rounded hover:bg-red-700 transition"
+                    >
                         Add to Cart
                     </button>
                 </div>
