@@ -1,8 +1,6 @@
 <div align="center">
   <br />
-  <a href="https://filipino-mart-nc.vercel.app/">
-    <img src="https://i.ibb.co/NK3CFbb/filipino-mart-banner.png" alt="Filipino Mart Screenshot" border="0" />
-  </a>
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/390GQBZv/filipino-mart-logo-lg.png" alt="filipino-mart-logo-lg" border="0"></a>
   <br />
 
   <div>
