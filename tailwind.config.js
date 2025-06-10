@@ -4,11 +4,9 @@ export default {
     theme: {
         extend: {
             height: {
-                'input': '3rem'
-            }
+                input: '3rem',
+            },
         },
     },
-    plugins: [
-        require('@tailwindcss/forms'),
-    ],
+    plugins: [require('@tailwindcss/forms')],
 };
