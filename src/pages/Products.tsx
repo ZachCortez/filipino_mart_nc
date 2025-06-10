@@ -16,11 +16,11 @@ export const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
 
     return (
         <div
-            className="max-w-7xl mx-auto px-6 py-12 bg-white"
+            className="max-w-7xl mx-auto px-6 py-12 bg-gray-900 rounded-xl"
             data-aos="fade-up"
             data-aos-duration="1000"
         >
-            <h1 className="text-4xl font-extrabold text-red-700 mb-10 text-center tracking-wide">
+            <h1 className="text-4xl font-extrabold text-red-600 mb-10 text-center tracking-wide text-gray-100">
                 All Products
             </h1>
 

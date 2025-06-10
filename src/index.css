@@ -2,30 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Base Styles */
+/* ------------------------------ */
+/* 🌙 Base Styles - Dark Theme    */
+/* ------------------------------ */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-gray-800 font-sans antialiased;
+    @apply bg-[#1f1f1f] text-[#f1e8e6] font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-gray-900;
+    @apply font-bold text-gray-100;
   }
 
   a {
-    @apply text-red-700 hover:text-yellow-500 transition-colors;
+    @apply text-yellow-400 hover:text-red-400 transition-colors;
   }
 
   button {
-    @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply bg-[#2b2b2b] text-[#f1e8e6] border border-gray-700 placeholder-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition;
   }
 }
 
-/* Custom Components */
+/* ------------------------------ */
+/* 🧩 Components                  */
+/* ------------------------------ */
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-lg font-medium shadow-sm transition;
@@ -40,15 +50,21 @@
   }
 
   .btn-gold {
-    @apply bg-yellow-400 text-white hover:bg-yellow-500;
+    @apply bg-yellow-500 text-black hover:bg-yellow-400;
   }
 
   .card {
-    @apply bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all p-6;
+    @apply bg-[#2a2a2a] border border-gray-700 rounded-xl shadow-md p-6 transition-all hover:shadow-lg;
+  }
+
+  .section {
+    @apply bg-[#2b2b2b] text-[#f1e8e6] rounded-lg p-6 shadow-md border border-gray-700;
   }
 }
 
-/* Custom Utilities */
+/* ------------------------------ */
+/* 🛠️ Utilities                   */
+/* ------------------------------ */
 @layer utilities {
   .text-outline-white {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
@@ -57,20 +73,34 @@
   .text-outline-black {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
+
+  .bg-dark {
+    background-color: #1f1f1f;
+  }
+
+  .bg-dark-alt {
+    background-color: #2b2b2b;
+  }
+
+  .text-sand {
+    color: #f1e8e6;
+  }
 }
 
-/* Root container */
+/* ------------------------------ */
+/* 🧱 Layout Container             */
+/* ------------------------------ */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  color: #1f2937; /* Tailwind's gray-800 */
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  @apply bg-[#1f1f1f] text-[#f1e8e6] font-sans flex flex-col items-center justify-start text-center;
 }
 
-/* Logo Styling */
+/* ------------------------------ */
+/* 🔆 Logo Styling                */
+/* ------------------------------ */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -80,14 +110,16 @@
 
 .logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 2em #e11d48); /* Rose-600 for red tint */
+  filter: drop-shadow(0 0 2em #facc15);
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #2563eb); /* Blue-600 */
+  filter: drop-shadow(0 0 2em #2563eb);
 }
 
-/* Spin Animation */
+/* ------------------------------ */
+/* 🔁 Animations                  */
+/* ------------------------------ */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -103,29 +135,35 @@
   }
 }
 
-/* Card Styling */
+/* ------------------------------ */
+/* 📦 Card Enhancements           */
+/* ------------------------------ */
 .card {
-  background: #f9fafb; /* Tailwind's gray-50 */
-  border: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+  background: #2f2f2f;
+  border: 1px solid #4b5563;
   border-radius: 0.75rem;
   padding: 2em;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Callout text */
+/* ------------------------------ */
+/* 📣 Informational Text          */
+/* ------------------------------ */
 .read-the-docs {
-  color: #9ca3af; /* Tailwind's gray-400 */
+  color: #9ca3af;
   font-size: 0.875rem;
   margin-top: 1rem;
 }
 
-/* Filipino Flag Theme Colors */
+/* ------------------------------ */
+/* 🇵🇭 Filipino Flag Palette      */
+/* ------------------------------ */
 .text-red {
   color: #dc2626;
 }

@@ -35,8 +35,12 @@ const offers = [
 
 export const OfferList: React.FC = () => {
     return (
-        <section className="max-w-7xl mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
-            <h2 className="text-4xl font-extrabold text-red-700 mb-8 tracking-wide">
+        <section
+            className="max-w-7xl mx-auto px-4 sm:px-6 py-10 bg-white rounded-lg shadow-lg"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h2 id="special-offers" className="text-4xl font-extrabold text-red-700 mb-8 tracking-wide">
                 Special Offers
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -47,3 +51,4 @@ export const OfferList: React.FC = () => {
         </section>
     );
 };
+

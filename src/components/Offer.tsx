@@ -20,7 +20,7 @@ export const Offer: React.FC<OfferProps> = ({
                                                 productLink,
                                             }) => {
     return (
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow transform hover:scale-[1.03] duration-300">
+        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow transform hover:scale-[1.03] duration-300">
             <div className="relative">
                 <img
                     src={imageUrl}
@@ -33,14 +33,14 @@ export const Offer: React.FC<OfferProps> = ({
                 </div>
             </div>
 
-            <div className="p-5 bg-blue-50">
-                <h3 className="text-xl font-extrabold text-red-700 mb-2 tracking-wide">
+            <div className="p-5 bg-gray-900">
+                <h3 className="text-xl font-extrabold text-red-500 mb-2 tracking-wide">
                     {title}
                 </h3>
-                <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                     {description}
                 </p>
-                <div className="flex items-center justify-between text-sm text-gray-600">
+                <div className="flex items-center justify-between text-sm text-gray-400">
                     <div className="flex items-center space-x-1">
                         <Clock className="w-4 h-4 text-red-500" />
                         <span>Expires: {expiryDate}</span>

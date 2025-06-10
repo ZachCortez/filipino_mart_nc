@@ -49,19 +49,17 @@ function App() {
     return (
         <Router>
             <ScrollToTop />
-            <div className="min-h-screen bg-gray-50">
+            <div className="flex flex-col min-h-screen bg-gray-50">
                 <Navbar
                     cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
                     onCartClick={() => setIsCartOpen(true)}
                 />
 
-                <main className="pt-16">
+                {/* Main content should grow to fill space */}
+                <main className="flex-grow pt-16">
                     <Routes>
                         <Route path="/" element={<Home onAddToCart={handleAddToCart} />} />
-                        <Route
-                            path="/products"
-                            element={<Products onAddToCart={handleAddToCart} />}
-                        />
+                        <Route path="/products" element={<Products onAddToCart={handleAddToCart} />} />
                         <Route path="/categories" element={<Categories />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/checkout" element={<Checkout />} />
@@ -80,6 +78,7 @@ function App() {
                 />
             </div>
         </Router>
+
     );
 }
 
