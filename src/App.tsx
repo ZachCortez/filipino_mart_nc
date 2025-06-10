@@ -49,7 +49,7 @@ function App() {
     return (
         <Router>
             <ScrollToTop />
-            <div className="flex flex-col min-h-screen bg-gray-50">
+            <div className="flex flex-col min-h-screen bg-gray-700">
                 <Navbar
                     cartItemsCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
                     onCartClick={() => setIsCartOpen(true)}

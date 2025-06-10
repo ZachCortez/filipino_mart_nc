@@ -9,13 +9,9 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) => {
     const location = useLocation();
-    const [isMobileMenuOpen, setIsMobileMenuMenuOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const isActive = (path: string) => location.pathname === path;
-
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
 
     const navLinks = [
         { path: '/', label: 'Home' },
@@ -25,21 +21,27 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
     ];
 
     return (
-        <nav className="fixed w-full top-0 z-50 bg-[#1f1f1f] shadow-lg border-b border-[#3b0a02]">
+        <nav className="fixed w-full top-0 z-50 bg-gray-900 shadow-lg border-b border-red-900">
             <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-                {/* Left Side */}
+                {/* Left Section */}
                 <div className="flex items-center space-x-6">
+                    {/* Mobile Menu Button */}
                     <button
-                        onClick={toggleMobileMenu}
-                        className="md:hidden focus:outline-none focus:ring-2 focus:ring-[#fcd34d] rounded"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded"
                         aria-label="Toggle mobile menu"
                     >
-                        {isMobileMenuOpen ? <X className="h-6 w-6 text-[#fcd34d]" /> : <Menu className="h-6 w-6 text-[#fcd34d]" />}
+                        {isMobileMenuOpen ? (
+                            <X className="h-6 w-6 text-yellow-400" />
+                        ) : (
+                            <Menu className="h-6 w-6 text-yellow-400" />
+                        )}
                     </button>
 
+                    {/* Logo */}
                     <Link
                         to="/"
-                        className="text-3xl font-extrabold tracking-tight text-[#fcd34d] hover:text-white flex items-center gap-2"
+                        className="text-3xl font-extrabold tracking-tight text-yellow-400 hover:text-white flex items-center gap-2"
                         aria-label="Filipino Mart Home"
                     >
                         <img
@@ -51,40 +53,43 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
                     </Link>
                 </div>
 
-                {/* Desktop Nav */}
-                <div className="hidden md:flex space-x-10 font-semibold text-md text-[#f1e8e6]">
-                    {navLinks.map((link) => (
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex space-x-10 font-semibold text-md text-gray-200">
+                    {navLinks.map(({ path, label }) => (
                         <Link
-                            key={link.path}
-                            to={link.path}
-                            className={`transition-colors hover:text-[#fcd34d] ${
-                                isActive(link.path)
-                                    ? 'text-[#fcd34d] border-b-2 border-[#fcd34d] pb-1'
+                            key={path}
+                            to={path}
+                            className={`transition-colors hover:text-yellow-400 ${
+                                isActive(path)
+                                    ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1'
                                     : ''
                             }`}
                         >
-                            {link.label}
+                            {label}
                         </Link>
                     ))}
                 </div>
 
-                {/* Right Side */}
+                {/* Right Section */}
                 <div className="flex items-center space-x-5">
+                    {/* Profile Icon */}
                     <Link
                         to="/profile"
-                        className="p-2 hover:bg-[#fcd34d] hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#fcd34d]"
+                        className="p-2 hover:bg-yellow-400 hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400"
                         aria-label="User Profile"
                     >
-                        <User className="h-6 w-6 text-[#f1e8e6]" />
+                        <User className="h-6 w-6 text-gray-200" />
                     </Link>
+
+                    {/* Shopping Cart */}
                     <button
                         onClick={onCartClick}
-                        className="relative p-2 hover:bg-[#fcd34d] hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#fcd34d]"
+                        className="relative p-2 hover:bg-yellow-400 hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400"
                         aria-label="Shopping Cart"
                     >
-                        <ShoppingCart className="h-6 w-6 text-[#f1e8e6]" />
+                        <ShoppingCart className="h-6 w-6 text-gray-200" />
                         {cartItemsCount > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-[#b91c1c] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                            <span className="absolute -top-1 -right-1 bg-red-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                                 {cartItemsCount}
                             </span>
                         )}
@@ -92,19 +97,19 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Navigation */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-[#2b2b2b] shadow-md rounded-b-md">
-                    {navLinks.map((link) => (
+                <div className="md:hidden bg-gray-800 shadow-md rounded-b-md">
+                    {navLinks.map(({ path, label }) => (
                         <Link
-                            key={link.path}
-                            to={link.path}
-                            className={`block py-3 px-6 font-semibold text-[#f1e8e6] hover:bg-[#fcd34d] hover:text-black transition-colors ${
-                                isActive(link.path) ? 'bg-[#fcd34d] text-black' : ''
-                            }`}
+                            key={path}
+                            to={path}
                             onClick={() => setIsMobileMenuOpen(false)}
+                            className={`block py-3 px-6 font-semibold text-gray-100 hover:bg-yellow-400 hover:text-black transition-colors ${
+                                isActive(path) ? 'bg-yellow-400 text-black' : ''
+                            }`}
                         >
-                            {link.label}
+                            {label}
                         </Link>
                     ))}
                 </div>
