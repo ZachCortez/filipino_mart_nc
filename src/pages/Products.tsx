@@ -11,13 +11,20 @@ interface ProductsProps {
 
 export const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
     React.useEffect(() => {
-        AOS.init();
+        AOS.init({ once: true });
     }, []);
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8" data-aos="fade-up" data-aos-duration="1000">
-            <h1 className="text-3xl font-bold text-gray-900 mb-8">All Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div
+            className="max-w-7xl mx-auto px-6 py-12 bg-white"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h1 className="text-4xl font-extrabold text-red-700 mb-10 text-center tracking-wide">
+                All Products
+            </h1>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
                 {products.map((product) => (
                     <ProductCard
                         key={product.id}
