@@ -19,14 +19,11 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
     return (
         <div className="space-y-16">
             {/* Hero Section */}
-            <section className="relative h-[450px] bg-gradient-to-r from-yellow-400 to-red-500 text-white shadow-md">
-                <div className="absolute inset-0">
-                    <img
-                        src="/assets/filipino-mart-logo-lg.png"
-                        alt="Filipino groceries"
-                        className="w-full h-full object-cover mix-blend-overlay"
-                    />
-                </div>
+            <section className="relative h-[450px] bg-gradient-to-r from-gray-800 to-transparent text-white shadow-md">
+                <div
+                    className="absolute inset-0 bg-cover bg-center mix-blend-overlay"
+                    style={{ backgroundImage: "url('/assets/filipino-mart-logo-lg.png')" }}
+                ></div>
                 <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
                     <div className="max-w-2xl">
                         <h1 className="text-5xl font-extrabold drop-shadow-md mb-4">
@@ -45,6 +42,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
                 </div>
             </section>
 
+
             {/* Features */}
             <section
                 className="max-w-7xl mx-auto px-4"
@@ -54,17 +52,17 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
                         {
-                            icon: <ShoppingBag className="h-10 w-10 text-red-600 mb-4" />,
+                            icon: <ShoppingBag className="h-10 w-10 text-red-600 mb-4"/>,
                             title: "Authentic Filipino Goods",
                             desc: "Hand-picked favorites from the Philippines"
                         },
                         {
-                            icon: <Truck className="h-10 w-10 text-red-600 mb-4" />,
+                            icon: <Truck className="h-10 w-10 text-red-600 mb-4"/>,
                             title: "Fast Delivery",
                             desc: "Local delivery or pickup options"
                         },
                         {
-                            icon: <Clock className="h-10 w-10 text-red-600 mb-4" />,
+                            icon: <Clock className="h-10 w-10 text-red-600 mb-4"/>,
                             title: "Convenient Shopping",
                             desc: "Shop anytime, anywhere"
                         },
