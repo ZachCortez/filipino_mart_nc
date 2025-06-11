@@ -21,7 +21,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
             {/* Hero Section */}
             <section className="relative h-[450px] md:h-[550px] text-white overflow-hidden">
                 {/* Background Gradient Layer */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-transparent z-10"></div>
 
                 {/* Background Image - Now using bg-contain */}
                 <div
