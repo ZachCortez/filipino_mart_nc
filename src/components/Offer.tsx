@@ -20,7 +20,7 @@ export const Offer: React.FC<OfferProps> = ({
                                                 productLink,
                                             }) => {
     return (
-        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transform hover:scale-[1.03] transition-all duration-300">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 border border-gray-200">
             {/* Image Section with Discount Badge */}
             <div className="relative">
                 <img
@@ -28,22 +28,22 @@ export const Offer: React.FC<OfferProps> = ({
                     alt={title}
                     className="w-full h-48 object-cover"
                 />
-                <div className="absolute top-3 right-3 bg-red-600 text-yellow-300 font-bold px-3 py-1 rounded-md flex items-center space-x-1 shadow-md">
+                <div className="absolute top-3 right-3 bg-red-600 text-white font-semibold px-3 py-1 rounded-md flex items-center space-x-1 shadow-md">
                     <Tag className="w-5 h-5" />
                     <span>{discount} OFF</span>
                 </div>
             </div>
 
             {/* Text & Link Section */}
-            <div className="p-5 bg-gray-900">
-                <h3 className="text-xl font-extrabold text-red-500 mb-2 tracking-wide">
+            <div className="p-5 bg-gray-50">
+                <h3 className="text-xl font-bold text-red-600 mb-2 tracking-wide">
                     {title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                     {description}
                 </p>
 
-                <div className="flex items-center justify-between text-sm text-gray-400">
+                <div className="flex items-center justify-between text-sm text-gray-500">
                     {/* Expiry Date */}
                     <div className="flex items-center space-x-1">
                         <Clock className="w-4 h-4 text-red-500" />

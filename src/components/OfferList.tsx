@@ -37,13 +37,13 @@ const offers = [
 export const OfferList: React.FC = () => {
     return (
         <section
-            className="max-w-7xl mx-auto px-4 sm:px-6 py-12 bg-gray-900 rounded-xl shadow-xl"
+            className="max-w-7xl mx-auto px-4 sm:px-6 py-12 bg-white rounded-xl shadow-md"
             data-aos="fade-up"
             data-aos-duration="1000"
         >
             <h2
                 id="special-offers"
-                className="text-4xl font-extrabold text-[#fcd34d] mb-10 tracking-wide text-center"
+                className="text-4xl font-extrabold text-red-600 mb-10 tracking-wide text-center"
             >
                 Special Offers
             </h2>

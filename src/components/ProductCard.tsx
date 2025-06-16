@@ -8,25 +8,25 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
     return (
-        <div className="bg-gray-900 border border-yellow-500 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-transform hover:scale-[1.03]">
+        <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-transform hover:scale-[1.02]">
             <img
                 src={product.image}
                 alt={product.name || "Product image"}
                 loading="lazy"
-                className="w-full h-48 object-cover border-b-4 border-red-600"
+                className="w-full h-48 object-cover border-b"
             />
             <div className="p-5">
-                <h3 className="text-xl font-extrabold text-yellow-400 mb-1">{product.name}</h3>
-                <p className="text-sm font-medium text-blue-400">{product.category}</p>
-                <p className="text-gray-300 mt-3 text-sm line-clamp-3">{product.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{product.name}</h3>
+                <p className="text-sm font-medium text-gray-500">{product.category}</p>
+                <p className="text-gray-700 mt-3 text-sm line-clamp-3">{product.description}</p>
                 <div className="mt-5 flex justify-between items-center">
-                    <span className="font-bold text-yellow-400 text-lg">
+                    <span className="font-bold text-red-600 text-lg">
                         ${Number(product.price).toFixed(2)}
                     </span>
                     <button
                         onClick={() => onAddToCart && onAddToCart(product)}
                         aria-label={`Add ${product.name} to cart`}
-                        className="bg-red-700 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-800 transition-shadow shadow-md hover:shadow-lg"
+                        className="bg-red-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-700 transition-shadow shadow hover:shadow-lg"
                     >
                         Add to Cart
                     </button>

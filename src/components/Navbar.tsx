@@ -21,27 +21,28 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
     ];
 
     return (
-        <nav className="fixed w-full top-0 z-50 bg-gray-900 shadow-lg border-b border-red-900">
-            <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+            <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-4">
+
                 {/* Left Section */}
                 <div className="flex items-center space-x-6">
-                    {/* Mobile Menu Button */}
+                    {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded"
-                        aria-label="Toggle mobile menu"
+                        className="md:hidden focus:outline-none focus:ring-2 focus:ring-yellow-500 rounded"
+                        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                     >
                         {isMobileMenuOpen ? (
-                            <X className="h-6 w-6 text-yellow-400" />
+                            <X className="h-6 w-6 text-yellow-600" />
                         ) : (
-                            <Menu className="h-6 w-6 text-yellow-400" />
+                            <Menu className="h-6 w-6 text-yellow-600" />
                         )}
                     </button>
 
                     {/* Logo */}
                     <Link
                         to="/"
-                        className="text-3xl font-extrabold tracking-tight text-yellow-400 hover:text-white flex items-center gap-2"
+                        className="text-2xl font-bold tracking-tight text-[#c42021] hover:text-yellow-600 flex items-center gap-2"
                         aria-label="Filipino Mart Home"
                     >
                         <img
@@ -54,14 +55,14 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
                 </div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex space-x-10 font-semibold text-md text-gray-200">
+                <div className="hidden md:flex space-x-8 font-medium text-sm text-gray-800">
                     {navLinks.map(({ path, label }) => (
                         <Link
                             key={path}
                             to={path}
-                            className={`transition-colors hover:text-yellow-400 ${
+                            className={`transition-colors hover:text-yellow-600 ${
                                 isActive(path)
-                                    ? 'text-yellow-400 border-b-2 border-yellow-400 pb-1'
+                                    ? 'text-yellow-600 border-b-2 border-yellow-500 pb-1'
                                     : ''
                             }`}
                         >
@@ -71,25 +72,25 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
                 </div>
 
                 {/* Right Section */}
-                <div className="flex items-center space-x-5">
-                    {/* Profile Icon */}
+                <div className="flex items-center space-x-4">
+                    {/* Profile */}
                     <Link
                         to="/profile"
-                        className="p-2 hover:bg-yellow-400 hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        className="p-2 hover:bg-yellow-100 hover:text-yellow-700 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500"
                         aria-label="User Profile"
                     >
-                        <User className="h-6 w-6 text-gray-200" />
+                        <User className="h-6 w-6 text-gray-700" />
                     </Link>
 
-                    {/* Shopping Cart */}
+                    {/* Cart */}
                     <button
                         onClick={onCartClick}
-                        className="relative p-2 hover:bg-yellow-400 hover:text-black rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        className="relative p-2 hover:bg-yellow-100 hover:text-yellow-700 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500"
                         aria-label="Shopping Cart"
                     >
-                        <ShoppingCart className="h-6 w-6 text-gray-200" />
+                        <ShoppingCart className="h-6 w-6 text-gray-700" />
                         {cartItemsCount > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-red-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                                 {cartItemsCount}
                             </span>
                         )}
@@ -99,14 +100,14 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemsCount, onCartClick }) =
 
             {/* Mobile Navigation */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-gray-800 shadow-md rounded-b-md">
+                <div className="md:hidden bg-white border-t border-gray-200 shadow-sm">
                     {navLinks.map(({ path, label }) => (
                         <Link
                             key={path}
                             to={path}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className={`block py-3 px-6 font-semibold text-gray-100 hover:bg-yellow-400 hover:text-black transition-colors ${
-                                isActive(path) ? 'bg-yellow-400 text-black' : ''
+                            className={`block py-3 px-6 font-medium text-gray-700 hover:bg-yellow-100 hover:text-yellow-700 transition-colors ${
+                                isActive(path) ? 'bg-yellow-100 text-yellow-700' : ''
                             }`}
                         >
                             {label}
